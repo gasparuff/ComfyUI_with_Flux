@@ -34,7 +34,7 @@ jobs:
           file: ./comfyui-without-flux/Dockerfile
           push: true
           tags: gasparuff/comfyui-without-flux:v1.0.0
-          cache-to: type=registry,ref=gasparuff/comfyui-without-flux:cache,mode=max
+          cache-to: type=inline
           cache-from: type=registry,ref=gasparuff/comfyui-without-flux:cache
-
+          outputs: type=image,push=true  # 🧠 This avoids local export
           platforms: linux/amd64
