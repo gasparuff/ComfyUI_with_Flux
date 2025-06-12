@@ -103,46 +103,11 @@ COPY --chmod=755 download_Files.sh /download_Files.sh
 COPY --chmod=755 download_wan2.1.sh /download_wan2.1.sh
 COPY --chmod=755 disable_mixlab.sh /disable_mixlab.sh
 
-# SUPIR Upscale
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/kijai/ComfyUI-SUPIR.git && \
-    cd ComfyUI-SUPIR && \
-    pip3 install -r requirements.txt
-
-# KJNodes
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/kijai/ComfyUI-KJNodes.git && \
-    cd ComfyUI-KJNodes && \
-    pip3 install -r requirements.txt
 
 # rgthree
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/rgthree/rgthree-comfy.git && \
     cd rgthree-comfy && \
-    pip3 install -r requirements.txt
-
-# JPS-Nodes
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/JPS-GER/ComfyUI_JPS-Nodes.git
-
-# Comfyrol Studio
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes.git
-
-# comfy-plasma
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/Jordach/comfy-plasma.git
-
-# ComfyUI-VideoHelperSuite
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite.git && \
-    cd ComfyUI-VideoHelperSuite && \
-    pip3 install -r requirements.txt
-
-# ComfyUI-AdvancedLivePortrait
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/PowerHouseMan/ComfyUI-AdvancedLivePortrait.git && \
-    cd ComfyUI-AdvancedLivePortrait && \
     pip3 install -r requirements.txt
 
 # ComfyUI-Impact-Subpack
@@ -162,28 +127,9 @@ RUN cd /ComfyUI/custom_nodes && \
 RUN mkdir -p /ComfyUI/models/ultralytics/bbox && \
     wget "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt?download=true" -O /ComfyUI/models/ultralytics/bbox/face_yolov8m.pt
 
-# ComfyUI-Impact-controlnet_aux
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/Fannovel16/comfyui_controlnet_aux.git && \
-    cd comfyui_controlnet_aux && \
-    pip3 install -r requirements.txt
-
 # ComfyUI-UltimateSDUpscale
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/ssitu/ComfyUI_UltimateSDUpscale --recursive
-
-# ComfyUI-Easy-Use
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/yolain/ComfyUI-Easy-Use.git && \
-    cd ComfyUI-Easy-Use && \
-    pip3 install -r requirements.txt
-
-# ComfyUI-Florence2
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/kijai/ComfyUI-Florence2.git && \
-    cd ComfyUI-Florence2 && \
-    pip3 install -r requirements.txt && \
-    mkdir /ComfyUI/models/LLM
 
 # was-node-suite-comfyui
 RUN cd /ComfyUI/custom_nodes && \
@@ -191,51 +137,20 @@ RUN cd /ComfyUI/custom_nodes && \
     cd was-node-suite-comfyui && \
     pip3 install -r requirements.txt
 
-# ComfyUI-Logic
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/theUpsider/ComfyUI-Logic.git
-
 # ComfyUI_essentials
 RUN cd /ComfyUI/custom_nodes && \
     git clone https://github.com/cubiq/ComfyUI_essentials.git && \
     cd ComfyUI_essentials && \
     pip3 install -r requirements.txt
 
-# cg-image-picker
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/chrisgoringe/cg-image-picker.git
-
-# ComfyUI_LayerStyle
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/chflame163/ComfyUI_LayerStyle.git && \
-    cd ComfyUI_LayerStyle && \
-    pip3 install -r requirements.txt
-
-# Ccomfyui-mixlab-nodes
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/shadowcz007/comfyui-mixlab-nodes.git && \
-    cd comfyui-mixlab-nodes && \
-    pip3 install -r requirements.txt
-
-# comfyui-reactor-node
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://codeberg.org/Gourieff/comfyui-reactor-node.git && \
-    cd comfyui-reactor-node && \
-    pip3 install -r requirements.txt
 
 # make the directory and download the swap_model file
-RUN mkdir -p /ComfyUI/models/insightface && \
-    wget "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /ComfyUI/models/insightface/inswapper_128.onnx
+# RUN mkdir -p /ComfyUI/models/insightface && \
+#     wget "https://huggingface.co/ezioruan/inswapper_128.onnx/resolve/main/inswapper_128.onnx?download=true" -O /ComfyUI/models/insightface/inswapper_128.onnx
 
-# cg-use-everywhere
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/chrisgoringe/cg-use-everywhere.git
-
-# ComfyUI-CogVideoXWrapper
-RUN cd /ComfyUI/custom_nodes && \
-    git clone https://github.com/kijai/ComfyUI-CogVideoXWrapper.git && \
-    cd ComfyUI-CogVideoXWrapper && \
-    pip3 install -r requirements.txt
+# # cg-use-everywhere
+# RUN cd /ComfyUI/custom_nodes && \
+#     git clone https://github.com/chrisgoringe/cg-use-everywhere.git
 
 # AI-Toolkit
 RUN cd / && \
@@ -250,7 +165,7 @@ COPY --chmod=755 ai-toolkit/caption_images.py /caption_images.py
 EXPOSE 7860
 
 # make the directory and download the model needed for the tutorial workflow on first launch
-RUN mkdir -p /ComfyUI/models/checkpoints && \
-    wget "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true" -O /ComfyUI/models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors
+RUN mkdir -p /ComfyUI/models/checkpoints 
+# && \ wget "https://huggingface.co/Comfy-Org/stable-diffusion-v1-5-archive/resolve/main/v1-5-pruned-emaonly-fp16.safetensors?download=true" -O /ComfyUI/models/checkpoints/v1-5-pruned-emaonly-fp16.safetensors
 
 CMD [ "/start.sh" ]
