@@ -13,6 +13,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/go /opt/hostedtoolcache/CodeQL
+          df -h
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -29,4 +34,7 @@ jobs:
           file: ./comfyui-without-flux/Dockerfile
           push: true
           tags: gasparuff/comfyui-without-flux:v1.0.0
+          cache-to: type=registry,ref=gasparuff/comfyui-without-flux:cache,mode=max
+          cache-from: type=registry,ref=gasparuff/comfyui-without-flux:cache
+
           platforms: linux/amd64
