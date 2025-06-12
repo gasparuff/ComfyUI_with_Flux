@@ -25,7 +25,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./comfyui-without-flux
+          file: ./comfyui-without-flux/Dockerfile
           push: true
           tags: gasparuff/comfyui-without-flux:v1.0.0
           platforms: linux/amd64
